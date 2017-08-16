@@ -1,0 +1,42 @@
+<section class="eventpage">
+	<div class="search">
+		<h1>Event Directory</h1>
+		<label> Search:</label>
+		<input ng-model="query" placeholder="Search for event">
+		<label class="form-group">
+			<select ng-model="eventOrder">
+			<option value="name"> Location </option>
+			<option value="subject"> Subject</option>
+				
+			</select>
+		</label>
+
+		<label class="formgroup">
+			<input type="radio" ng-model="direction" name="direction" checked> Accessend
+		</label>
+		<label class="formgroup">
+		<input type="radio" ng-model="direction" name="direction" value="reverse"> deccessend
+		</label>
+	</div>
+		<ul class="eventlist">
+			<li class="Eventone cf" ng-repeat="item in paqadevent | filter: query | orderBy: eventOrder:direction">
+				<a href="#/details/{{paqadevent.indexOf(item)}}">
+			<img ng-src="images/{{item.shortname}}_tn.png" alt="photo of {{item.name}} ">
+			<div>
+				<h2> {{item.subject}} </h2>
+				<h3>{{item.name}}</h3>
+			</div>
+			</a>
+			</li>
+		</ul>
+
+
+
+
+
+
+
+
+
+
+</section>
